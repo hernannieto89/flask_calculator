@@ -1,9 +1,18 @@
+"""
+Initializes the Flask application.
+"""
 from flask import Flask, jsonify
 from calculator.models import db
 from calculator.controllers.main import main
 
 
 def create_app(object_name, env="prod"):
+    """
+    Creates flask app.
+    Defines two custom error handlers.
+    Initialize database.
+    Registers blueprints for main module.
+    """
     app = Flask(__name__)
 
     app.config.from_object(object_name)

@@ -1,10 +1,15 @@
+"""
+Flask_calculator Models.
+"""
 from flask.ext.sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
 
 class Session(db.Model):
-
+    """
+    Session model.
+    """
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True)
 
@@ -24,7 +29,9 @@ class Session(db.Model):
 
 
 class Operation(db.Model):
-
+    """
+    Operation model.
+    """
     id = db.Column(db.Integer, primary_key=True)
     session_id = db.Column(db.Integer, db.ForeignKey('session.id'))
     session = db.relationship('Session',
