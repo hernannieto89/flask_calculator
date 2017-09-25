@@ -9,7 +9,6 @@ manager = Manager(app)
 manager.add_command("show-urls", ShowUrls())
 manager.add_command("clean", Clean())
 
-
 @manager.command
 def createdb():
     """ Creates a database with all of the tables defined in

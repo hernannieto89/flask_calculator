@@ -7,13 +7,13 @@ de sesiones en base de datos.
 Requerimientos de base:
 - [Python 2.7 +](https://www.python.org/)
 - [PIP](https://pip.pypa.io/en/stable/quickstart/)
-- [VirtualEnvWrapper](https://virtualenvwrapper.readthedocs.io/en/latest/)
+- [VirtualEnv](https://virtualenv.pypa.io/en/stable/)
 
 Procedimiento:
 ```
 $ git clone https://github.com/hernannieto89/flask_calculator
 $ cd flask_calculator
-$ mkvirtualenv NOMBREENV
+$ virtualenv NOMBREENV
 $ pip install -r requirements.txt
 $ python manage.py createdb
 $ python manage.py runserver

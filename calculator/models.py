@@ -6,9 +6,9 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 
-class Session(db.Model):
+class PersistedSession(db.Model):
     """
-    Session model.
+    PersistedSession model.
     """
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True)
@@ -34,7 +34,7 @@ class Operation(db.Model):
     """
     id = db.Column(db.Integer, primary_key=True)
     session_id = db.Column(db.Integer, db.ForeignKey('session.id'))
-    session = db.relationship('Session',
+    session = db.relationship('PersistedSession',
                               backref = db.backref('operations', lazy='dynamic'))
     input = db.Column(db.String(255))
     output = db.Column(db.String(255))
