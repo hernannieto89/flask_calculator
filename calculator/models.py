@@ -10,6 +10,9 @@ class PersistedSession(db.Model):
     """
     PersistedSession model.
     """
+    __tablename__ = 'persisted_session'
+
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True)
 
@@ -32,10 +35,12 @@ class Operation(db.Model):
     """
     Operation model.
     """
+    __tablename__ = 'operation'
+
     id = db.Column(db.Integer, primary_key=True)
-    session_id = db.Column(db.Integer, db.ForeignKey('session.id'))
     session = db.relationship('PersistedSession',
                               backref = db.backref('operations', lazy='dynamic'))
+    session_id = db.Column(db.Integer, db.ForeignKey('persisted_session.id'))
     input = db.Column(db.String(255))
     output = db.Column(db.String(255))
 
